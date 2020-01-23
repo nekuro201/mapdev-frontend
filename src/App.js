@@ -32,6 +32,24 @@ function App() {
     setDevs([...devs, response.data]);
   }
 
+  async function handleDropDev(data){
+    const {github_username} = data;
+
+    const response = await api.delete(`/devs/${github_username}`)
+
+    const {n} = response.data;
+
+    if(n !== 0){
+      console.log("EXCLUIDO");
+
+      setDevs([...devs.filter(devs => devs.github_username !== github_username )]);
+
+    }
+    else{
+      console.log("NÃO EXCLUIDO");
+    }
+  }
+
   return (
     <div id="app">
 
@@ -43,7 +61,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <DevItem key={dev._id} dev={dev} />
+            <DevItem onSubmit={handleDropDev} key={dev._id} dev={dev} />
           ))}
           
         </ul>

@@ -3,6 +3,7 @@ li.dev-item{
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
   padding: 20px;
+  position: relative;
 }
 
 li.dev-item header{
@@ -11,7 +12,7 @@ li.dev-item header{
   align-items: center;
 }
 
-li.dev-item header img{
+li.dev-item header .perfil-img{
   width: 54px;
   height: 54px;
   border-radius: 50%;
@@ -48,4 +49,51 @@ li.dev-item a{
 
 li.dev-item a:hover{
   color: #5a2ea6;
+}
+
+
+.absolute-drop{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  text-align: center;
+}
+
+.absolute-drop button{
+  background-color:#fff;
+  border-style: none;
+  height: 40px;
+  width: 40px;
+
+  display: block;
+
+  /* Here is the important code*/
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+}
+
+.absolute-drop button:hover{
+  background-color: #fff;
+  border-style: none;
+}
+
+.absolute-drop button:hover .imageDrop{
+  opacity: 1;
+}
+
+.absolute-drop button:active .imageDrop{
+  width: 18px;
+  height: 18px;
+}
+
+.absolute-drop .imageDrop{
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+  text-align: center;
 }
